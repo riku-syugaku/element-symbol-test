@@ -60,7 +60,7 @@ button {
     align-items: center;
     
     /* 文字サイズ */
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.5rem, 7.5vw, 2rem);
     font-weight: 700;
     
     color: #ffffff;
