@@ -1,100 +1,106 @@
 body {
     margin: 0;
-    padding: 20px;
-    background: #f0f2f5; /* 少し落ち着いたグレー背景 */
+    padding: 10px;
+    background: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     display: flex;
-    justify-content: center; /* 画面中央に配置 */
+    justify-content: center;
     min-height: 100vh;
 }
 
 #quiz-container {
     width: 100%;
-    max-width: 450px; /* ★ここがポイント：PCではこれ以上大きくならない */
+    max-width: 450px;
     background: #ffffff;
     padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* ボタンのサイズも少しだけPC用に調整 */
-button {
-    padding: 30px 5px; /* PCでは少し控えめに */
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #ffffff;
-    border: none;
     border-radius: 20px;
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
-    box-shadow: 0 6px 0 #3730a3;
-    touch-action: manipulation;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* モバイルではさらに大きくしたいならメディアクエリで調整 */
-@media (max-width: 480px) {
-    button {
-        padding: 45px 5px; /* スマホならやっぱりデカく */
-        font-size: 1.8rem;
-    }
+#score-display {
+    /* 画面幅に応じて文字サイズを自動調整 */
+    font-size: clamp(1.2rem, 4vw, 1.6rem); 
+    font-weight: 700;
+    color: #6366f1;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#question-box {
+    /* 一行に収めつつ、はみ出る場合は文字サイズを自動で縮小 */
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    font-weight: 900;
+    margin-bottom: 20px;
+    padding: 30px 10px;
+    background: #f8fafc;
+    border-radius: 15px;
+    text-align: center;
+    color: #1e293b;
 }
 
 #buttons-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px; /* ボタン同士の隙間を少し広げると押しやすい */
+    gap: 10px;
 }
+
+button {
+    /* 縦長になりすぎないよう padding を調整 */
+    padding: 20px 5px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    box-shadow: 0 4px 0 #3730a3;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* モバイルではさらに大きくしたいならメディアクエリで調整 */
+@media (max-width: 480px) {
+button {
+    padding: 45px 5px; /* スマホならやっぱりデカく */
+    font-size: 1.8rem;
+}
+}
+
 
 
 /* スマホではhoverは効かないため、active（押している間）の強調を強める */
 button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #3e498c;
+transform: translateY(2px);
+box-shadow: 0 2px 0 #3e498c;
 }
 /* ホバー時の動き */
 button:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 0 #3e498c, 0 10px 20px rgba(0,0,0,0.3);
+filter: brightness(1.1);
+transform: translateY(-2px);
+box-shadow: 0 10px 0 #3e498c, 0 10px 20px rgba(0,0,0,0.3);
 }
 
-
-#question-box {
-    font-size: 3rem; /* さらに大きくしました */
-    font-weight: 900;
-    margin-bottom: 20px;
-    padding: 30px 10px;
-    background: #ffffff;
-    border-radius: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    color: #333;
-    text-align: center; /* これで問題文が中央揃えになります */
-}
-
-#score-display {
-    font-size: 2.5rem; /* 「あと 18 問」をかなり大きくしました */
-    font-weight: 800;
-    color: #5c6bc0;
-    display: block;
-    width: 100%;
-    text-align: center; /* 中央揃え */
-    margin: 0 auto 20px auto;
-}
 
 
 
 /* 正解：目に優しいミントグリーン */
 .correct-class {
-    background: linear-gradient(135deg, #22c55e, #16a34a) !important;
-    box-shadow: 0 6px 0 #15803d !important;
+background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+box-shadow: 0 6px 0 #15803d !important;
 }
 
 /* 不正解：落ち着いたソフトレッド */
 .wrong-class {
-    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-    box-shadow: 0 6px 0 #b91c1c !important;
+background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+box-shadow: 0 6px 0 #b91c1c !important;
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-8px); }
-    75% { transform: translateX(8px); }
+0%, 100% { transform: translateX(0); }
+25% { transform: translateX(-8px); }
+75% { transform: translateX(8px); }
 }
