@@ -1,0 +1,65 @@
+body { font-family: 'Hiragino Maru Gothic ProN', sans-serif; text-align: center; background: #f7f9fc; }
+#question-box { font-size: 3rem; font-weight: 800; margin-bottom: 20px; padding: 40px 10px; background: #ffffff; border-radius: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+/* スマホ画面で横に広がりすぎないように制限 */
+#quiz-container { 
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+
+/* ボタン配置の最適化 */
+#buttons-container { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 12px; /* スマホなら12px〜15pxが押しやすいです */
+}
+
+
+
+/* スマホではhoverは効かないため、active（押している間）の強調を強める */
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3e498c;
+}
+/* ホバー時の動き */
+button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 0 #3e498c, 0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+/* モダンで落ち着いた配色 */
+button {
+    padding: 30px 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    border-radius: 18px;
+    
+    /* 深みのあるブルーグレー系グラデーション */
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    box-shadow: 0 6px 0 #3730a3, 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+/* 正解：目に優しいミントグリーン */
+.correct-class {
+    background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+    box-shadow: 0 6px 0 #15803d !important;
+}
+
+/* 不正解：落ち着いたソフトレッド */
+.wrong-class {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    box-shadow: 0 6px 0 #b91c1c !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
