@@ -53,17 +53,24 @@ body {
 }
 
 button {
-    /* 高さを固定せず、paddingを最小限にして「中身の文字にフィット」させます */
-    padding: 12px 0; 
-    /* 横幅を稼ぐために少しだけフォントをスリムに */
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    font-weight: 600;
-    color: #ffffff;
+    /* 1. 高さを指定せず、縦横比（横:縦 = 2:1）で固定する */
+    aspect-ratio: 2 / 1; 
+    
+    /* 2. 余白を消して、中身の文字でバランスを取る */
+    padding: 0;
+    
+    /* 3. 中身の文字を中央に寄せる */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-weight: 700;
+    border-radius: 12px;
     border: none;
-    border-radius: 8px;
     background: linear-gradient(135deg, #6366f1, #4f46e5);
-    /* 影も少し小さくして、ボタンを薄く見せます */
-    box-shadow: 0 3px 0 #3730a3;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #3730a3;
     cursor: pointer;
     touch-action: manipulation;
 }
