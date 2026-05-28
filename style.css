@@ -6,6 +6,8 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
+    height: 50px; /* ここを調整すれば確実に高さが固定されます */
+    width: 100%;  /* コンテナの幅いっぱいに */
 }
 
 #quiz-container {
