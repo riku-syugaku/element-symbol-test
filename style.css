@@ -6,8 +6,6 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    height: 50px; /* ここを調整すれば確実に高さが固定されます */
-    width: 100%;  /* コンテナの幅いっぱいに */
 }
 
 #quiz-container {
@@ -43,34 +41,33 @@ body {
     text-align: center;
     color: #1e293b;
 }
-
-
 #buttons-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* ここを広げるとボタン同士の窮屈さがなくなります */
+    /* 隙間を詰める場合はここを調整（小さくすると詰まります） */
     gap: 15px; 
 }
 
 button {
-    /* 1. 高さを指定せず、縦横比（横:縦 = 2:1）で固定する */
-    aspect-ratio: 2 / 1; 
+    /* 縦横比を 1:1 に固定（これで正方形になります） */
+    aspect-ratio: 1 / 0.7;
     
-    /* 2. 余白を消して、中身の文字でバランスを取る */
+    /* パディングを0にし、文字を上下左右中央に配置 */
     padding: 0;
-    
-    /* 3. 中身の文字を中央に寄せる */
     display: flex;
     justify-content: center;
     align-items: center;
     
-    font-size: clamp(1rem, 4vw, 1.5rem);
+    /* 文字サイズ */
+    font-size: clamp(1rem, 5vw, 2rem);
     font-weight: 700;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    
     color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
     box-shadow: 0 4px 0 #3730a3;
+    
     cursor: pointer;
     touch-action: manipulation;
 }
