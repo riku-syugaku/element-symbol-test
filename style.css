@@ -49,17 +49,25 @@ body {
 }
 
 button {
-    /* 縦長になりすぎないよう padding を調整 */
-    padding: 20px 5px;
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    /* 縦の余白を小さくし、横に広がるバランスに */
+    padding: 15px 5px; 
+    /* フォントサイズを少しだけ控えめに */
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     font-weight: 700;
     color: #ffffff;
     border: none;
-    border-radius: 12px;
+    /* 角丸を少しだけ小さくすると横長に見えます */
+    border-radius: 10px;
     background: linear-gradient(135deg, #6366f1, #4f46e5);
     box-shadow: 0 4px 0 #3730a3;
     cursor: pointer;
     touch-action: manipulation;
+}
+
+/* ボタンが押された時の沈み込みを少し小さく */
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3730a3;
 }
 
 /* モバイルではさらに大きくしたいならメディアクエリで調整 */
@@ -72,11 +80,7 @@ button {
 
 
 
-/* スマホではhoverは効かないため、active（押している間）の強調を強める */
-button:active {
-transform: translateY(2px);
-box-shadow: 0 2px 0 #3e498c;
-}
+
 /* ホバー時の動き */
 button:hover {
 filter: brightness(1.1);
