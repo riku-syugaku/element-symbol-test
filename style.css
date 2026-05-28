@@ -70,6 +70,8 @@ button {
     
     cursor: pointer;
     touch-action: manipulation;
+
+    
 }
 
 /* ボタンが押された時の沈み込みを少し小さく */
@@ -83,10 +85,15 @@ button:active {
 button {
     padding: 45px 5px; /* スマホならやっぱりデカく */
     font-size: 1.8rem;
+    
 }
 }
 
-
+@media (max-width: 480px) {
+    #buttons-container {
+        /* スマホでは少し隙間を詰める */
+        gap: 12px;
+    }
 
 
 /* ホバー時の動き */
