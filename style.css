@@ -51,6 +51,7 @@ body {
 button {
     /* 縦横比を 1:1 に固定（これで正方形になります） */
     aspect-ratio: 1 / 0.7;
+    width: 100%; 
     
     /* パディングを0にし、文字を上下左右中央に配置 */
     padding: 0;
@@ -81,19 +82,21 @@ button:active {
 }
 
 /* モバイルではさらに大きくしたいならメディアクエリで調整 */
+/* --- スマホ用（480px以下）の制限 --- */
 @media (max-width: 480px) {
-button {
-    padding: 45px 5px; /* スマホならやっぱりデカく */
-    font-size: 1.8rem;
-    
-}
-}
-
-@media (max-width: 480px) {
-    #buttons-container {
-        /* スマホでは少し隙間を詰める */
-        gap: 12px;
+    button {
+        /* スマホのときだけサイズを制限 */
+        width: 100px; 
+        height: 100px;
+        margin: 0 auto;
+        /* gridのセルサイズを調整するために重要 */
     }
+    
+    #buttons-container {
+        /* スマホのときは中央に寄せるための調整 */
+        justify-items: center; 
+    }
+}
 
 
 /* ホバー時の動き */
