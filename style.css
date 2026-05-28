@@ -126,3 +126,14 @@ box-shadow: 0 6px 0 #b91c1c !important;
 25% { transform: translateX(-8px); }
 75% { transform: translateX(8px); }
 }
+
+/* 「もう一度挑戦する」ボタンを横長にする */
+#buttons-container button:only-child,
+#buttons-container button[style*="span 3"] {
+    aspect-ratio: auto; /* 正方形のルールを解除 */
+    width: 100%;       /* コンテナの幅いっぱいに */
+    padding: 15px 0;   /* 上下の余白で高さを確保 */
+    max-width: none;   /* スマホ制限を解除 */
+    margin: 0;
+}
+
