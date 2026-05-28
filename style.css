@@ -42,24 +42,26 @@ body {
     color: #1e293b;
 }
 
+
 #buttons-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    /* ここを広げるとボタン同士の窮屈さがなくなります */
+    gap: 15px; 
 }
 
 button {
-    /* 縦の余白を小さくし、横に広がるバランスに */
-    padding: 15px 5px; 
-    /* フォントサイズを少しだけ控えめに */
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    font-weight: 700;
+    /* 高さを固定せず、paddingを最小限にして「中身の文字にフィット」させます */
+    padding: 12px 0; 
+    /* 横幅を稼ぐために少しだけフォントをスリムに */
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 600;
     color: #ffffff;
     border: none;
-    /* 角丸を少しだけ小さくすると横長に見えます */
-    border-radius: 10px;
+    border-radius: 8px;
     background: linear-gradient(135deg, #6366f1, #4f46e5);
-    box-shadow: 0 4px 0 #3730a3;
+    /* 影も少し小さくして、ボタンを薄く見せます */
+    box-shadow: 0 3px 0 #3730a3;
     cursor: pointer;
     touch-action: manipulation;
 }
